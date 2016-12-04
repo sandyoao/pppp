@@ -1,0 +1,38 @@
+<HTML>
+<title>Restaurant</title>
+<link rel="stylesheet" href="/layout.css">
+
+<header>
+<div align="right">
+<a href="/logout">
+<font color="white">Logout</font>
+</a>
+</div>
+<div align="left">
+<h1>Restaurants</h1>
+</div>
+
+<p>User: <%=user%></p>
+
+<p>
+Showing <%= r.length %> documents
+(criteria:<%-JSON.stringify(c) %> )
+</p>
+
+</header>
+<BODY>
+<form action="/read" method="post" id="search">
+Restaurant Name: <input type="text" name="name" id="name">&nbsp;
+Borough: <input type="text" name="borough">&nbsp;
+Cuisine: <input type="text" name="cuisine">&nbsp;
+<input type="submit" value="Search" >
+</form>
+<a href="/new" style="text-decoration: none">
+<button class="Button">New</button>
+</a>
+<ol id="list">
+  <% r.forEach(function(restaurant) { %>
+  <li><a href=/display?id=<%= restaurant._id %>><%= restaurant.name %></a></li><hr>
+  <% });                        %>
+<ol>
+</BODY></HTML>

@@ -1,0 +1,45 @@
+<html>
+<link rel="stylesheet" href="/layout.css">
+<head>
+  <title>Change New Restaurant</title>
+</head>
+<body>
+<H1>Change New Restaurant</H1>
+
+<form action="/change?id=<%=id%>" method="post" encType="multipart/form-data">
+<p> Name:<br>
+<input type="text" value="<%= r.name %>" name="name" required/>
+</p>
+<p> Borough:<br>
+<input type="text" value="<%= r.borough %>" name="borough"/>
+</p>
+<p> Cuisine:<br>
+<input type="text" value="<%= r.cuisine %>" name="cuisine"/>
+</p>
+<p> Street:<br>
+<input type="text" value="<%= r.address.street %>" name="street"/>
+</p>
+<p> Building:<br>
+<input type="text" value="<%= r.address.building %>" name="building"/>
+</p>
+<p> Zipcode:<br>
+<input type="text" value="<%= r.address.zipcode %>" name="zipcode"/>
+</p>
+
+<p> GPS Coordinates (lon.) :<br>
+<input type="text" value="<%= r.address.coordinates[0] %>" name="lon"/>
+</p>
+<p> GPS Coordinates (lat.):<br>
+<input type="text" value="<%= r.address.coordinates[1] %>" name="lat"/>
+</p>
+
+<p> Photo:<br>
+<input type="file" name="photo" accept="image/*">
+</p>
+
+<input type="submit" value="Change">
+
+</form>
+
+</body>
+</html>

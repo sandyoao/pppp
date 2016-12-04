@@ -1,0 +1,31 @@
+<html>
+<link rel="stylesheet" href="/layout.css">
+    <head> 
+        <title><%= name %></title>
+        <style>
+            #map {
+                height: 100%;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+        <script>
+            function initMap() {
+                var myLatLng = {lat: <%=lat%>, lng: <%=lon%>};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: <%=zoom%>,
+                center: myLatLng
+            });
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map
+            });
+            }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrU3IIFxQHm60u2mWfhCzK6HFZKHs2r0A&callback=initMap">
+    </script>
+    </body>
+</html>

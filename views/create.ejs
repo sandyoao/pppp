@@ -1,0 +1,51 @@
+<html>
+<link rel="stylesheet" href="/layout.css">
+<head>
+  <title><%= r.ops[0].name %></title>
+</head>
+<body>
+<H2><%= r.ops[0].name %></H2>
+<div>
+<% if (r.ops[0].data != null && r.ops[0].data != "") { %>
+<img src="data: <%= r.ops[0].mimetype %>;base64, <%= r.ops[0].data %>" border="1" style="width:100%"><br/>
+<% } %>
+
+<p>Borough: <%= r.ops[0].borough %></p>
+<p>Cuisine: <%= r.ops[0].cuisine %></p>
+<p>Street: <%= r.ops[0].address.street %></p>
+<p>Building: <%= r.ops[0].address.building %></p>
+<p>Zipcode: <%= r.ops[0].address.zipcode %></p>
+<p>GPS: [<%= r.ops[0].address.coordinates %>]</p>
+<p>Rating:</p>
+<ol>
+<% var counter = 0; %>
+<% r.ops[0].rating.forEach(function(restaurant) { %>
+    <li><%= r.ops[0].rating[counter].grade %> (<%= r.ops[0].rating[counter].userid %>)</li>
+<% counter += 1; %>
+<% });                        %>
+</ol>
+
+<p>Created By: <%= r.ops[0].createdBy %></p>
+
+<% if (r.ops[0].address.coordinates[0] != null && r.ops[0].address.coordinates[1] != null && r.ops[0].address.coordinates[0] != "" && r.ops[0].address.coordinates[1] != "") { %>
+<a href="/gmap?lat=<%= r.ops[0].address.coordinates[1] %>&lon=<%= r.ops[0].address.coordinates[0] %>&title=<%= r.ops[0].name %>" style="text-decoration: none">Google Map</a>
+<% } %>
+</div>
+
+<div>
+<a href="/rate?id=<%= r.ops[0]._id %>" style="text-decoration: none">
+<button class="Button">Rate</button>
+</a>
+<a href="/change?id=<%= r.ops[0]._id %>" style="text-decoration: none">
+<button class="Button">Edit</button>
+</a>
+<a href="/remove?id=<%= r.ops[0]._id %>" style="text-decoration: none">
+<button class="Button">Delete</button>
+</a>
+<a href="/read" style="text-decoration: none">
+<button class="Button">Go Back</button>
+</a>
+</div>
+
+</body>
+</html>

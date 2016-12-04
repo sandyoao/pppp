@@ -1,0 +1,22 @@
+{
+	"name": "NodejsStarterApp",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"cfenv": "1.0.x",
+		"cookie-session": "latest",
+		"express":"latest",
+		"express-fileupload": "latest",
+		"ejs": "*",
+		"body-parser": "*",
+		"mongodb": "latest"
+	},
+	"repository": {},
+	"engines": {
+		"node": "4.x"
+	} 
+}
+
